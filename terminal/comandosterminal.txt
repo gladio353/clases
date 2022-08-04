@@ -1,0 +1,14 @@
+comandos de terminal
+mkdir crear directorio
+rmdir borrar directorio
+rm borrar
+touch crear archivo
+cd nombre mover
+cd .. atras
+cd - adelante
+nano editar
+cat mirar
+ls mirar
+pwd donde estoy
+ping nombre coneccion 
+
