@@ -1,0 +1,26 @@
+h1 {
+	color: skyblue;
+}
+body {
+	background-color: black !important;
+}
+#inicio{
+	color: white;
+	text-align: center;
+	padding-top: 30px;
+}
+#inicio img{
+	height: 200px;
+}
+
+a {
+	background-color: skyblue;
+}
+.col-md-4{
+	padding-bottom: 10px;
+
+}
+#tarjetas{
+	padding-bottom: 30px;
+
+}
