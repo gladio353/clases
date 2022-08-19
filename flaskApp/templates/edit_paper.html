@@ -1,0 +1,23 @@
+{% extends "home.html" %}
+{% block body %}
+<div>
+	<div class="container text-center">
+		<form method="POST" action='{{url_for("edit_paper",id=data.id)}}'>
+			<div class="form-group">
+				<label style="color:white;">Titulo: </label>
+				<input class="form-control" type="text" name="titulo" value="{{data.titulo}}">
+			</div>
+			<div class="form-group">
+				<label style="color:white;">Contenido: </label>
+				<textarea class="form-control" type="text" name="contenido" rows="3" value="{{data.contenido}}"></textarea> 
+			</div>
+			<br>
+			<input class="btn btn-info" type="submit" value="Submit">
+			<br>
+			<br>
+			<br>
+		</form>
+		
+	</div>
+</div>
+{% endblock %}

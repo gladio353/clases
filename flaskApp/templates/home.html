@@ -62,7 +62,7 @@
 						<div class="card-body">
 							<h5 class="card-title">{{row.titulo}}</h5>
 							<p class="card-text">{{row.fecha}}</p>
-							<a href="#" class="btn btn-info">Go somewhere</a>
+							<a href="{{url_for('show_paper',id=row.id)}}" class="btn btn-info">Ver mas</a>
 						</div>
 					</div>
 				</div>			

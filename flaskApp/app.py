@@ -28,8 +28,46 @@ def add_paper():
 		flash("papel agregado")
 		return redirect(url_for("home"))
 
-
 	return render_template("add_paper.html")
+
+@app.route("/show_paper/<string:id>")
+def show_paper(id):
+	con=sql.connect("db_web.db")
+	con.row_factory=sql.Row
+	cur=con.cursor()
+	cur.execute("SELECT * FROM papers WHERE id=?",(id,))
+	data=cur.fetchone()
+	print(data[0])
+	return render_template("show_paper.html",data=data)
+
+@app.route("/edit_paper/<string:id>", methods=["POST","GET"])
+def edit_paper(id):
+	if request.method=="POST":
+		titulo=request.form["titulo"]
+		contenido=request.form["contenido"]
+		fecha=date.today()
+		con=sql.connect("db_web.db")
+		cur=con.cursor()
+		cur.execute("UPDATE papers SET titulo=?,contenido=? WHERE id=?",(titulo,contenido,id) )
+		con.commit()
+		flash("papel editado")
+		return redirect(url_for("home"))
+	con=sql.connect("db_web.db")
+	con.row_factory=sql.Row
+	cur=con.cursor()
+	cur.execute("SELECT * FROM papers WHERE id=?",(id,))
+	data=cur.fetchone()
+	print(data[0])
+	return render_template("edit_paper.html",data=data)
+
+@app.route("/delete_paper/<string:id>")
+def delete_paper(id):
+	con=sql.connect("db_web.db")
+	cur=con.cursor()
+	cur.execute("DELETE FROM papers WHERE id=?",(id,))
+	con.commit()
+	flash("papel eliminado")
+	return redirect(url_for("home"))
 
 if __name__=="__main__":
 	app.secret_key="1234"
